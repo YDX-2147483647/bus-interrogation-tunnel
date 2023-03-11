@@ -1,0 +1,29 @@
+[project]
+name = "bus-interrogation-tunnel"
+version = "0.1.0"
+description = "BIT 班车查询接口"
+authors = [
+    {name = "Y.D.X.", email = "73375426+YDX-2147483647@users.noreply.github.com"},
+]
+dependencies = [
+    "requests>=2.28.2",
+]
+requires-python = ">=3.10"
+readme = "README.md"
+license = {text = "MIT"}
+
+[build-system]
+requires = ["pdm-pep517>=1.0"]
+build-backend = "pdm.pep517.api"
+
+
+[tool.ruff]
+select = [
+    "E",  # pycodestyle errors
+    "W",  # pycodestyle warnings
+    "F",  # Pyflakes
+    "I",  # isort
+    "N",  # pep8-naming
+]
+line-length = 88  # Same as black
+ignore-init-module-imports = true
