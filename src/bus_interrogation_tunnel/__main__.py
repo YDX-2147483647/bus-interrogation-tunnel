@@ -1,12 +1,10 @@
 from pprint import pp
 
-from requests import get
+from bus_interrogation_tunnel import Bus
 
-from . import Auth
-
-response = get(
-    "http://hqapp1.bit.edu.cn/vehicle/get-reserved-seats",
-    auth=Auth(),
+api = Bus()
+response = api.get(
+    "/vehicle/get-reserved-seats",
     params={
         "id": "2208639427336042078",
         "date": "2023-03-11",

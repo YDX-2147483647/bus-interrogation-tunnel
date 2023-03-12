@@ -1,3 +1,3 @@
-from .client import Auth
+from .bus import Bus
 
-__all__ = ["Auth"]
+__all__ = ["Bus"]
