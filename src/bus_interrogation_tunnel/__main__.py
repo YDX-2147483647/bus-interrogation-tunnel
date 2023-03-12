@@ -1,13 +1,34 @@
-from pprint import pp
+from __future__ import annotations
+
+from argparse import ArgumentParser
+from typing import TYPE_CHECKING
+
+from rich.pretty import pprint
 
 from bus_interrogation_tunnel import Bus
 
-api = Bus()
-response = api.get(
-    "/vehicle/get-reserved-seats",
-    params={
-        "id": "2208639427336042078",
-        "date": "2023-03-11",
-    },
-)
-pp(response.json(), compact=True)
+if TYPE_CHECKING:
+    from argparse import Namespace
+
+
+def build_parser() -> ArgumentParser:
+    parser = ArgumentParser()
+    parser.add_argument("endpoint")
+    parser.add_argument("params", nargs="+", type=parse_params)
+    return parser
+
+
+def parse_params(raw: str) -> tuple[str, str]:
+    key, value = raw.split("==", maxsplit=2)
+    return key, value
+
+
+def main(args: Namespace) -> None:
+    api = Bus()
+    pprint(args.params)
+    response = api.get(args.endpoint, params=dict(args.params))
+    pprint(response.json())
+
+
+if __name__ == "__main__":
+    main(build_parser().parse_args())

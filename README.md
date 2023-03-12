@@ -4,7 +4,7 @@
 
 ```shell
 $ pdm install
-$ pdm run python -m bus_interrogation_tunnel
+$ pdm run python -m bus_interrogation_tunnel /vehicle/get-reserved-seats id==2208639427336042078 date==2023-03-11
 {'code': '1',
  'message': 'ok',
  'data': {'reserved_count': 48,
