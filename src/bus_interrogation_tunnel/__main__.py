@@ -14,7 +14,7 @@ if TYPE_CHECKING:
 def build_parser() -> ArgumentParser:
     parser = ArgumentParser()
     parser.add_argument("endpoint")
-    parser.add_argument("params", nargs="+", type=parse_params)
+    parser.add_argument("params", nargs="*", type=parse_params)
     return parser
 
 
@@ -25,7 +25,6 @@ def parse_params(raw: str) -> tuple[str, str]:
 
 def main(args: Namespace) -> None:
     api = Bus()
-    pprint(args.params)
     response = api.get(args.endpoint, params=dict(args.params))
     pprint(response.json())
 
