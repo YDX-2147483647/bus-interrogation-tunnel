@@ -1,20 +1,16 @@
-from __future__ import annotations
-
 from argparse import ArgumentParser
-from typing import TYPE_CHECKING
 
 from rich.pretty import pprint
 
 from bus_interrogation_tunnel import Bus
 
-if TYPE_CHECKING:
-    from argparse import Namespace
-
 
 def build_parser() -> ArgumentParser:
-    parser = ArgumentParser()
-    parser.add_argument("endpoint")
-    parser.add_argument("params", nargs="*", type=parse_params)
+    parser = ArgumentParser(description="BIT 班车查询接口")
+    parser.add_argument("endpoint", help="要询问的结点，例如 /vehicle/get-list")
+    parser.add_argument(
+        "params", nargs="*", type=parse_params, help="URL 参数，例如 date==2023-03-13，可多个"
+    )
     return parser
 
 
@@ -23,11 +19,12 @@ def parse_params(raw: str) -> tuple[str, str]:
     return key, value
 
 
-def main(args: Namespace) -> None:
+def main() -> None:
+    args = build_parser().parse_args()
     api = Bus()
     response = api.get(args.endpoint, params=dict(args.params))
     pprint(response.json())
 
 
 if __name__ == "__main__":
-    main(build_parser().parse_args())
+    main()

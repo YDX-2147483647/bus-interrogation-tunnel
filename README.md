@@ -1,4 +1,4 @@
-# 🚌 Bus Interrogation Tunnel
+# 🚌 Bus Interrogation Tunnel (`bitbus`)
 
 [BIT 班车](http://hqapp1.bit.edu.cn/newbanche/)查询接口。
 
@@ -13,7 +13,7 @@
 ### 🚍 查询车次
 
 ```
-$ pdm run python -m bus_interrogation_tunnel /vehicle/get-list date==2023-03-13
+$ pdm run bitbus /vehicle/get-list date==2023-03-13
 {
     'count': 52,
     'code': '0',
@@ -44,13 +44,13 @@ $ pdm run python -m bus_interrogation_tunnel /vehicle/get-list date==2023-03-13
 也可以筛选始末站：
 
 ```shell
-$ pdm run python -m bus_interrogation_tunnel /vehicle/get-list date==2023-03-13 address==良乡校区->中关村校区
+$ pdm run bitbus /vehicle/get-list date==2023-03-13 address==良乡校区->中关村校区
 ```
 
 ### 💺 查询座位
 
 ```
-$ pdm run python -m bus_interrogation_tunnel /vehicle/get-reserved-seats id==2208639427336042078 date==2023-03-11
+$ pdm run bitbus /vehicle/get-reserved-seats id==2208639427336042078 date==2023-03-11
 {'code': '1',
  'message': 'ok',
  'data': {'reserved_count': 48,

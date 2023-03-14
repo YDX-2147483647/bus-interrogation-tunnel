@@ -1,7 +1,7 @@
 [project]
 name = "bus-interrogation-tunnel"
 version = "0.1.0"
-description = "BIT 班车查询接口"
+description = "BIT 班车查询接口（bitbus）"
 authors = [
     {name = "Y.D.X.", email = "73375426+YDX-2147483647@users.noreply.github.com"},
 ]
@@ -12,6 +12,24 @@ dependencies = [
 requires-python = ">=3.10"
 readme = "README.md"
 license = {text = "MIT"}
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    "Environment :: Console",
+    "Topic :: Home Automation",
+    "Topic :: Utilities",
+    "Typing :: Typed",
+]
+
+[project.scripts]
+bitbus = "bus_interrogation_tunnel.__main__:main"
+
+[project.urls]
+homepage = "https://github.com/YDX-2147483647/bus-interrogation-tunnel"
+repository = "https://github.com/YDX-2147483647/bus-interrogation-tunnel"
+"Bug Tracker" = "https://github.com/YDX-2147483647/bus-interrogation-tunnel/issues"
+
 
 [build-system]
 requires = ["pdm-pep517>=1.0"]
