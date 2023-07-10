@@ -1,5 +1,7 @@
 # 🚌 Bus Interrogation Tunnel (`bitbus`)
 
+[![best of BITs](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/YDX-2147483647/best-of-bits/main/config/badge/v1.json)](https://github.com/YDX-2147483647/best-of-bits)
+
 [BIT 班车](http://hqapp1.bit.edu.cn/newbanche/)查询接口。
 
 > **Note**
