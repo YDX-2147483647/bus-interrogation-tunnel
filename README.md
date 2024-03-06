@@ -4,7 +4,7 @@
 
 [BIT 班车](http://hqapp1.bit.edu.cn/newbanche/)查询接口。
 
-> **Note**
+> [!NOTE]
 >
 > 只有查询功能，故无需登录。
 
